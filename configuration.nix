@@ -16,7 +16,6 @@
       ./misc/games.nix
       ./misc/keyboard.nix
       ./misc/locale.nix
-      ./misc/magic-wayland-fixes.nix
       ./misc/network.nix
       ./misc/nvidia.nix
       ./misc/printing.nix
