@@ -21,6 +21,10 @@
       ./misc/printing.nix
       ./misc/storage.nix
       ./misc/wayland-cope.nix
+      ./misc/tablet.nix
+
+      ./bundles/dev.nix
+      ./bundles/media.nix
 
       ./programs/firefox.nix
       ./programs/git.nix
@@ -47,18 +51,18 @@
     allowReboot = false;
     channel = "https://channels.nixos.org/nixos-25.05";
   };
-  # Optimize
+
+  # Prevent Infinite Garbage
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 7d";
   };
   nix.optimise = {
     automatic = true;
     dates = ["weekly"];
   };
   nix.settings.auto-optimise-store = true;
-
 
   # why are these here? idk.
   programs.appimage.enable = true;
@@ -76,29 +80,6 @@
 
   users.users.ej.packages = with pkgs; [
     tigervnc
-    (vscode-with-extensions.override {
-      vscode = vscodium;
-      vscodeExtensions = with vscode-extensions; [
-        jnoortheen.nix-ide
-        foxundermoon.shell-format
-        # samual.hackmud-color
-        esbenp.prettier-vscode
-        usernamehw.errorlens
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "markwhen";
-          publisher = "Markwhen";
-          version = "1.4.4";
-          sha256 = "r8WqTj+MFTkq34+A4LvinCJN3c6AY0z2RxMT+4rnZvs=";
-        }
-        {
-          name = "hackmud-color";
-          publisher = "Samual";
-          version = "0.5.0";
-          sha256 = "ucSv7KTTXxaf2iYgZ+V69BsjV009vxDzk0BGlh3vGig=";
-        }
-      ];
-    })
 
     # auth
     keepassxc
@@ -114,56 +95,19 @@
 
     # phone shit
     scrcpy
-    gnirehtet
-
-    # multimedia
-    ffmpeg
-    gimp
-    vlc
-    mpvc
-    tenacity
-    yt-dlp
-    kdePackages.kdenlive
-    # note: need these for flstudio
-    winetricks
-    wineWowPackages.stable
-    #wineWowPackages.waylandFull
-    # note: need this for stage lights
-    #qlcplus
+    gnirehtet    
+    
   ];
 
-  fonts.packages = with pkgs; [
-#     noto-fonts
-#     noto-fonts-cjk-sans
-#     noto-fonts-emoji
-#     liberation_ttf
-    fira-code
-    fira-code-symbols
-#     mplus-outline-fonts.githubRelease
-#     dina-font
-#     proggyfonts
-  ];
-
-  environment.systemPackages = with pkgs; [
-    # dev
-    gh
-    pnpm
-    yarn
-    nodejs
-    nodePackages.prettier
-    pastel
-    marksman
-    pkgs.nixfmt-rfc-style
-    pkgs.php83
-    wget
-    #pkgs.jetbrains.webstorm
-    #pkgs.jetbrains.phpstorm
-    #pkgs.jetbrains.rider
-    #pkgs.jetbrains.clion
-    #pkgs.jetbrains-toolbox
-    #ungoogled-chromium
-    #google-chrome
-  ];
+  # fonts.packages = with pkgs; [
+    # noto-fonts
+    # noto-fonts-cjk-sans
+    # noto-fonts-emoji
+    # liberation_ttf
+    # mplus-outline-fonts.githubRelease
+    # dina-font
+    # proggyfonts
+  # ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
