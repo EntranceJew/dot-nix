@@ -23,7 +23,18 @@
     #pkgs.jetbrains.rider
     #pkgs.jetbrains.clion
     #pkgs.jetbrains-toolbox
-    #ungoogled-chromium
+    (ungoogled-chromium.override {
+      commandLineArgs = [
+        "--ignore-gpu-blocklist"
+        "--enable-zero-copy"
+        # "--enable-features=AcceleratedVideoEncoder,AcceleratedVideoDecoder,AcceleratedVideoDecode,AcceleratedVideoDecodeLinux,UseChromeOSDirectVideoDecoder,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,VaapiVideoDecoder,VaapiVideoEncoder,PlatformHEVCDecoderSupport,UseMultiPlaneFormatForHardwareVideo"
+        "--enable-features=AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL"
+        "--disable-features=UseSkiaRenderer,UseChromeOSDirectVideoDecoder"
+        # "--enable-features=,,,Vulkan,DefaultANGLEVulkan,VulkanFromANGLE,,,,,,"
+        "--ozone-platform-hint=auto"
+        "--ozone-platform=wayland"
+      ];
+    })
     #google-chrome
 
     (vscode-with-extensions.override {
