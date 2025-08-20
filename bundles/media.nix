@@ -3,7 +3,8 @@
 {
   environment.systemPackages = with pkgs; [
     # media
-    ffmpeg
+    x265
+    ffmpeg-full
     vlc
     mpvc
     tenacity
