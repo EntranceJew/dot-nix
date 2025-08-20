@@ -24,6 +24,15 @@
         "general.useragent.compatMode.firefox" = true;
         "network.dns.disableIPv6" = false;
         # video not shit?
+        "gfx.webrender.all" = true;
+        "gfx.webrender.compositor" = true;
+        "gfx.webrender.compositor.force-enabled" = true;
+        "dom.webgpu.enabled" = true;
+        "layers.gpu-process.enabled" = true;
+        "layers.mlgpu.enabled" = true;
+        "layers.acceleration.force-enabled" = true;
+        "layers.offmainthreadcomposition.enabled" = true;
+        "media.gpu-process-decoder" = true;
         "media.ffmpeg.vaapi.enabled" = true;
         "media.rrd-ffmpeg.enabled" = true;
         "media.av1.enabled" = true;
@@ -35,6 +44,8 @@
         "privacy.resistFingerprinting" = false;
         "cfg.pipewireSupport" = true;
         "dom.media.webcodecs.h265.enabled" = true;
+        "media.hls.enabled" = true;
+        "media.hevc.enabled" = true;
         # the rest
         "cookiebanners.service.mode.privateBrowsing" = 2; # Block cookie banners in private browsing
         "cookiebanners.service.mode" = 2; # Block cookie banners
