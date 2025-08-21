@@ -13,6 +13,7 @@
       ./home.nix
 
       ./misc/audio.nix
+      ./misc/flipper.nix
       ./misc/games.nix
       ./misc/keyboard.nix
       ./misc/locale.nix
@@ -20,8 +21,8 @@
       ./misc/nvidia.nix
       ./misc/printing.nix
       ./misc/storage.nix
-      ./misc/wayland-cope.nix
       ./misc/tablet.nix
+      ./misc/wayland-cope.nix
 
       ./bundles/dev.nix
       ./bundles/media.nix
