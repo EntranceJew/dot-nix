@@ -5,7 +5,7 @@ in
 {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = false;
-  home-manager.backupFileExtension="backup";
+  home-manager.backupFileExtension=".hm-ej.backup";
 
   imports = [
     (import "${home-manager}/nixos")
@@ -34,8 +34,8 @@ in
     "rules": [
         {
             "pattern": {
-                "feature": "dso",
-                "matches": "libGL.so.1"
+                "feature": "true",
+                "matches": ""
             },
             "profile": "openGL_fix"
         }
@@ -51,7 +51,7 @@ in
             ]
         }
     ]
-};
+}
     '';
   
   };
