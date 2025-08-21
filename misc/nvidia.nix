@@ -31,6 +31,7 @@
     NVD_BACKEND = "direct";
     EGL_PLATFORM = "wayland";
     WLR_NO_HARDWARE_CURSORS = "1";
+    KWIN_DRM_PREFER_COLOR_DEPTH = "24";
   };
   # environment.systemPackages = with pkgs; [
   # ];
