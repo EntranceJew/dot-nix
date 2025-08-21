@@ -10,6 +10,7 @@
     tenacity
     yt-dlp
     kdePackages.kdenlive
+    mpv
 
     # note: need these for flstudio
     winetricks
