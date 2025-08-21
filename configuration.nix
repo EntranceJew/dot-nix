@@ -26,7 +26,6 @@
       ./bundles/dev.nix
       ./bundles/media.nix
 
-      ./programs/firefox.nix
       ./programs/git.nix
       ./programs/mullvad.nix
       ./programs/obs.nix

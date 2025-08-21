@@ -1,15 +1,23 @@
 { config, pkgs, ... }:
 let
-    home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz;
+    home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/master.tar.gz;
 in
 {
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = false;
+  home-manager.backupFileExtension="backup";
+
   imports = [
     (import "${home-manager}/nixos")
   ];
 
-  home-manager.backupFileExtension="backup";
+  
+  
 
-  home-manager.users.ej = { pkgs, ... }: {
+  home-manager.users.ej = { config, pkgs, ... }: {
+    imports = [
+          ./programs/firefox.nix
+    ];
     xdg.mimeApps = {
       enable = true;
       defaultApplications = {
@@ -20,32 +28,35 @@ in
         "x-scheme-handler/unknown" = "librewolf.desktop";
       };
     };
-#     home.file = {
-#     ".nv/nvidia-application-profiles-rc".text = ''
-# {
-#     "rules": [
-#         {
-#             "pattern": {
-#                 "feature": "dso",
-#                 "matches": "libGL.so.1"
-#             },
-#             "profile": "openGL_fix"
-#         }
-#     ],
-#     "profiles": [
-#         {
-#             "name": "openGL_fix",
-#             "settings": [
-#                 {
-#                     "key": "GLThreadedOptimizations",
-#                     "value": false
-#                 }
-#             ]
-#         }
-#     ]
-# }
-#     '';
-#   };
+    home.file = {
+    ".nv/nvidia-application-profiles-rc".text = ''
+{
+    "rules": [
+        {
+            "pattern": {
+                "feature": "dso",
+                "matches": "libGL.so.1"
+            },
+            "profile": "openGL_fix"
+        }
+    ],
+    "profiles": [
+        {
+            "name": "openGL_fix",
+            "settings": [
+                {
+                    "key": "GLThreadedOptimizations",
+                    "value": false
+                }
+            ]
+        }
+    ]
+};
+    '';
+  
+  };
+
+
 
     programs.home-manager = {
       enable = true;

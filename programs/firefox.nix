@@ -1,18 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  # wayland cope
-  environment.variables.MOZ_ENABLE_WAYLAND = "1";
-  # video?
-  environment.variables.MOZ_DISABLE_RDD_SANDBOX = "1";
+  home.sessionVariables = {
+      # wayland cope
+      MOZ_ENABLE_WAYLAND = "1";
+      # video?
+      MOZ_DISABLE_RDD_SANDBOX = "1";
+  };
 
-  programs.firefox = {
+  programs.librewolf = {
     enable = true;
-    package = pkgs.librewolf.override {
-      cfg.pipewireSupport = true;
-      cfg.ffmpegSupport = true;
-    };
-    nativeMessagingHosts.packages = [
+    package = pkgs.librewolf;
+    nativeMessagingHosts = [
       pkgs.keepassxc
     ];
     policies = {
