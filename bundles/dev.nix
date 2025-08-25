@@ -16,6 +16,8 @@
     pastel
     marksman
     vscode-langservers-extracted
+    helix
+    imhex
     pkgs.nixfmt-rfc-style
     pkgs.php83
     wget
