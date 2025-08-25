@@ -15,14 +15,15 @@
     nodePackages.prettier
     pastel
     marksman
+    vscode-langservers-extracted
     pkgs.nixfmt-rfc-style
     pkgs.php83
     wget
-    #pkgs.jetbrains.webstorm
-    #pkgs.jetbrains.phpstorm
+    pkgs.jetbrains.webstorm
+    pkgs.jetbrains.phpstorm
     #pkgs.jetbrains.rider
     #pkgs.jetbrains.clion
-    #pkgs.jetbrains-toolbox
+    pkgs.jetbrains-toolbox
     (ungoogled-chromium.override {
       commandLineArgs = [
         "--ignore-gpu-blocklist"
