@@ -12,6 +12,10 @@
     kdePackages.kdenlive
     mpv
 
+    # music
+    vcv-rack
+    bespokesynth
+
     # note: need these for flstudio
     winetricks
     wineWowPackages.stable
