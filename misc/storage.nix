@@ -23,12 +23,6 @@ in
   ];
 
   # filesystems
-  fileSystems."/mnt/mintman" = {
-    device = "//hbdltnasdaq.local/mintman";
-    fsType = "cifs";
-    options = [ "${automount_opts},credentials=${syno_secret},rw,uid=1000" ];
-  };
-
   fileSystems."/" = {
     device = "/dev/disk/by-partuuid/aa3aeb96-8c53-49d0-b6f6-98a598390f99";
     fsType = "ext4";
@@ -38,6 +32,12 @@ in
     device = "/dev/disk/by-uuid/B44A-9200";
     fsType = "vfat";
     options = [ "fmask=0077" "dmask=0077" ];
+  };
+
+  fileSystems."/mnt/PD" = {
+    device = "//nas-kunlan.local/Personal-Drive";
+    fsType = "cifs";
+    options = [ "${automount_opts},credentials=${kunlan_secret},rw,uid=1000" ];
   };
 
   fileSystems."/mnt/Share" = {
@@ -52,10 +52,10 @@ in
     options = [ "${automount_opts},credentials=${syno_secret},rw,uid=1000" ];
   };
 
-  fileSystems."/mnt/PD" = {
-    device = "//nas-kunlan.local/Personal-Drive";
+  fileSystems."/mnt/mintman" = {
+    device = "//hbdltnasdaq.local/mintman";
     fsType = "cifs";
-    options = [ "${automount_opts},credentials=${kunlan_secret},rw,uid=1000" ];
+    options = [ "${automount_opts},credentials=${syno_secret},rw,uid=1000" ];
   };
 
   # fileSystems."/mnt/UNAS" =
