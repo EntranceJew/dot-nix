@@ -16,6 +16,7 @@
     pastel
     marksman
     vscode-langservers-extracted
+    mw
     helix
     imhex
     pkgs.nixfmt-rfc-style
