@@ -31,6 +31,8 @@
   environment.systemPackages = with pkgs; [
     pkgs.gamemode
     pkgs.prismlauncher
+    pkgs.pcsx2
+    pkgs.ares
   ];
 
   programs.steam = {
