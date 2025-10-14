@@ -12,6 +12,7 @@
       ./hardware-configuration.nix
       ./home.nix
 
+      ./misc/scanner.nix
       ./misc/audio.nix
       ./misc/flipper.nix
       ./misc/games.nix
