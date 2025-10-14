@@ -3,7 +3,6 @@
 {
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.settings.General.DisplayServer = "wayland";
-  services.xserver.enable = true;
 
   users.users.ej.packages = with pkgs; [
     # look at all this bullshit just to do what xdotool can do
@@ -41,6 +40,9 @@
     _JAVA_AWT_WM_NONREPARENTING = "1";
     NIXOS_OZONE_WL = "1";
     GDK_BACKEND = "wayland";
+    NVD_BACKEND = "direct";
+    EGL_PLATFORM = "wayland";
+    WLR_NO_HARDWARE_CURSORS="1";
   };
 
   # services.xrdp = {
@@ -49,21 +51,21 @@
   # };
 
   ## what
-  # xdg.portal = {
-  #   enable = true;
-  #   wlr = {
-  #     enable = true;
-  #     settings = {
+  xdg.portal = {
+    enable = true;
+    wlr = {
+      enable = true;
+      # settings = {
   #       screencast = {
   #         max_fps = 55;
   #         chooser_type = "simple";
   #         chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
   #       };
   #     };
-  #   };
-  #   config = {
-  #     wlroots.default = ["wlr" "gtk"];
+    };
+    config = {
+      wlroots.default = ["wlr"]; # "gtk"
   #     common.default = ["gtk"];
-  #   };
-  # };
+    };
+  };
 }

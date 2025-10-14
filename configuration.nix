@@ -48,8 +48,13 @@
   '';
 
   # Enforce Desktop Environment
+  environment.variables = {
+    KWIN_DRM_PREFER_COLOR_DEPTH = "24";
+  };
+  services.xserver.enable = true;
   services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm.enable = true;
+  services.displayManager.defaultSession = "plasma";
 
   # Updates
   system.autoUpgrade = {
