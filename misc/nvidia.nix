@@ -2,18 +2,25 @@
 
 {
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = false;
+  # boot = {
+  #   # nvidia-uvm is required for CUDA applications
+  #   kernelModules = [ "nvidia-uvm" ];
+  #   blacklistedKernelModules = [ "nouveau" ];
+  # };
   nixpkgs.config = {
     cudaSupport = true;
     allowUnfree = true;
     # nvidia.acceptLicense = true;
   };
   hardware.graphics.enable = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production.overrideAttrs {
-    version = "580.76.05";
-    src = pkgs.fetchurl {
-      url = "https://us.download.nvidia.com/XFree86/Linux-x86_64/580.76.05/NVIDIA-Linux-x86_64-580.76.05.run";
-      sha256 = "1zcpbp859h5whym0r54a3xrkqdl7z3py1hg8n8hv0c89nqvfd6r1";
+  hardware.nvidia = {
+    open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.production.overrideAttrs {
+      version = "580.95.05";
+      src = pkgs.fetchurl {
+        url = "https://us.download.nvidia.com/XFree86/Linux-x86_64/580.95.05/NVIDIA-Linux-x86_64-580.95.05.run";
+        sha256 = "sha256-hJ7w746EK5gGss3p8RwTA9VPGpp2lGfk5dlhsv4Rgqc=";
+      };
     };
   };
   # services.xserver.videoDrivers = [ "nvidia" ];
