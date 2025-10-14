@@ -8,24 +8,37 @@
 
   environment.systemPackages = with pkgs; [
     # dev
-    gh
+    # utils
+    wget
+    # package management
     pnpm
     yarn
+    # runtimes
     nodejs
-    nodePackages.prettier
-    pastel
-    marksman
-    vscode-langservers-extracted
-    mw
+    pkgs.php83
+    # what
+    gh
+    # hex
     helix
     imhex
+    # gamedev
+    godotPackages_4_3.godot-mono
+    godotPackages_4_3.export-templates-mono-bin
+    godotPackages_4_3.export-templates-bin
+    godotPackages_4_3.export-template-mono
+    godotPackages_4_3.export-template
+    # highlighters
+    pastel
+    nodePackages.prettier
+    marksman
+    mw
     pkgs.nixfmt-rfc-style
-    pkgs.php83
-    wget
+    vscode-langservers-extracted
+    # ides
     pkgs.jetbrains.webstorm
     pkgs.jetbrains.phpstorm
-    #pkgs.jetbrains.rider
-    #pkgs.jetbrains.clion
+    pkgs.jetbrains.rider
+    pkgs.jetbrains.clion
     pkgs.jetbrains-toolbox
     (ungoogled-chromium.override {
       commandLineArgs = [
