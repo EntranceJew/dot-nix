@@ -13,6 +13,7 @@
       ./home.nix
 
       ./misc/scanner.nix
+      ./misc/bluetooth.nix
       ./misc/audio.nix
       ./misc/flipper.nix
       ./misc/games.nix
