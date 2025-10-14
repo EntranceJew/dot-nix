@@ -23,6 +23,17 @@
       };
     };
   };
+  # boot = {
+    # kernelParams = [
+      # "nvidia_modeset.hdmi_deepcolor=0"
+      # "module_blacklist=i915"
+      # "nvidia-drm.fbdev=1"
+      # "nvidia-drm.modeset=1"
+      # "nvidia.NVreg_UsePageAttributeTable=1" # why this isn't default is beyond me.
+      # "nvidia_modeset.disable_vrr_memclk_switch=1" # stop really high memclk when vrr is in use.
+    # ];
+    # kernelModules = ["nvidia-drm" "nvidia-uvm"];
+  # };
   # services.xserver.videoDrivers = [ "nvidia" ];
   # hardware.nvidia.open = true;  # see the note above
   # hardware.graphics.extraPackages = with pkgs; [
@@ -35,11 +46,51 @@
     LIBVA_DRIVER_NAME = "nvidia";
     GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    NVD_BACKEND = "direct";
-    EGL_PLATFORM = "wayland";
-    WLR_NO_HARDWARE_CURSORS = "1";
-    KWIN_DRM_PREFER_COLOR_DEPTH = "24";
+    KWIN_DRM_PREFER_COLOR_DEPTH="24";
+    KWIN_DRM_ALLOW_NVIDIA_COLORSPACE="1";
+    # KWIN_DRM_ALLOW_INTEL_COLORSPACE="1";
+    DRM_CAP_DUMB_PREFERRED_DEPTH="24";
+    # KWIN_DRM_DEVICES="/dev/dri/by-path/pci-0000:01:00.0-card";
+    # KWIN_DRM_DISABLE_TRIPLE_BUFFERING="1";
+    # KWIN_DISABLE_TONEMAPPING="1";
   };
   # environment.systemPackages = with pkgs; [
   # ];
+
+  ## display shit in particular
+  # boot.kernelParams = [ "nvidia-drm.fbdev=0" "nvidia-drm.modeset=1" ];
+  # hardware.nvidia.modesetting.enable = lib.mkForce false;
+
+  hardware.display = {
+    edid = {
+      enable = true;
+      linuxhw = {
+        DELL_U2722D_2021 = [ "U2722D" "2021" "0A141DE5419E" ];
+      };
+    };
+
+    # I don't know where "DP-1" is
+    # outputs = {
+    #   "DP-2" = {
+    #     edid = "DELL_U2722D_2021.bin";
+    #     # mode = "2560x1440-24@60eD";
+    #     mode = "1920x1080-24@60e";
+    #   };
+    #   "DP-3" = {
+    #     edid = "DELL_U2722D_2021.bin";
+    #     # mode = "2560x1440-24@60eD";
+    #     mode = "1920x1080-24@60e";
+    #   };
+    #   "DP-4" = {
+    #     edid = "DELL_U2722D_2021.bin";
+    #     # mode = "2560x1440-24@60eD";
+    #     mode = "1920x1080-24@60e";
+    #   };
+    #   "DP-5" = {
+    #     edid = "DELL_U2722D_2021.bin";
+    #     # mode = "2560x1440-24@60eD";
+    #     mode = "1920x1080-24@60e";
+    #   };
+    # };
+  };
 }
