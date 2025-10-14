@@ -107,8 +107,10 @@
 
     # phone shit
     scrcpy
-    gnirehtet    
-    
+    gnirehtet
+
+    # experiment
+    (callPackage ./packages/plasma-applet-resources-monitor.nix {})
   ];
 
   # fonts.packages = with pkgs; [
