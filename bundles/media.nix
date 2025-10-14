@@ -10,7 +10,7 @@
     tenacity
     yt-dlp
     kdePackages.kdenlive
-    mpv
+    (mpv.override { scripts = [mpvScripts.mpris];})
 
     # music
     vcv-rack
