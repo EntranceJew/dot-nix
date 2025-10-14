@@ -12,6 +12,7 @@
       ./hardware-configuration.nix
       ./home.nix
 
+      ./misc/3dconnexion.nix
       ./misc/scanner.nix
       ./misc/bluetooth.nix
       ./misc/audio.nix
