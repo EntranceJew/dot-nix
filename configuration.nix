@@ -12,6 +12,10 @@
       ./hardware-configuration.nix
       ./home.nix
 
+      ./gfx/shared.nix
+      ./gfx/amd.nix
+      
+      ./misc/monitors.nix
       ./misc/3dconnexion.nix
       ./misc/scanner.nix
       ./misc/bluetooth.nix
@@ -21,7 +25,6 @@
       ./misc/keyboard.nix
       ./misc/locale.nix
       ./misc/network.nix
-      ./misc/nvidia.nix
       ./misc/printing.nix
       ./misc/storage.nix
       ./misc/tablet.nix
