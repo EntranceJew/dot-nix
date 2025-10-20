@@ -26,6 +26,24 @@
     PROTON_ENABLE_HDR="1";
   };
 
+  # home.sessionVariables = {
+  #   MOZ_ENABLE_WAYLAND = "1";
+  # };
+
+  # # librewolf wayland cope combo
+  # programs.librewolf = {
+  #   policies = {
+  #     Preferences = {
+  #       "widget.gtk.global-menu.wayland.enabled" = true;
+  #       "widget.wayland.opaque-region.enabled" = true;
+  #       "widget.wayland.fractional-scale.enabled" = true;
+  #       "widget.wayland.vsync.keep-firing-at-idle" = true;
+  #       "gfx.wayland.hdr" = true;
+  #       "gfx.wayland-egl.force-enabled" = true;
+  #     };
+  #   };
+  # };
+
   # all these environment things for some reason don't come stock with the combination of other packages
   # they are, for all intents and purposes, magic
   environment.sessionVariables = {

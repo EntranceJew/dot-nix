@@ -2,8 +2,6 @@
 
 {
   home.sessionVariables = {
-      # wayland cope
-      MOZ_ENABLE_WAYLAND = "1";
       # video?
       MOZ_DISABLE_RDD_SANDBOX = "1";
   };
@@ -20,31 +18,31 @@
       Preferences = {
         # regular human
         # "general.useragent.override" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.";
-        "general.useragent.compatMode.firefox" = true;
-        "network.dns.disableIPv6" = false;
+        # "general.useragent.compatMode.firefox" = true;
+        # "network.dns.disableIPv6" = false;
         # video not shit?
         "gfx.webrender.all" = true;
-        "gfx.webrender.compositor" = true;
-        "gfx.webrender.compositor.force-enabled" = true;
-        "dom.webgpu.enabled" = true;
-        "layers.gpu-process.enabled" = true;
-        "layers.mlgpu.enabled" = true;
-        "layers.acceleration.force-enabled" = true;
-        "layers.offmainthreadcomposition.enabled" = true;
-        "media.gpu-process-decoder" = true;
-        "media.ffmpeg.vaapi.enabled" = true;
-        "media.rrd-ffmpeg.enabled" = true;
-        "media.av1.enabled" = true;
-        "gfx.x11-egl.force-enabled" = true;
-        "gfx.wayland-egl.force-enabled" = true;
-        "widget.dmabuf.force-enabled" = true;
-        "media.hardware-video-decoding.force-enabled" = true;
-        "webgl.disabled" = false;
+        # "gfx.webrender.compositor" = true;
+        # "gfx.webrender.compositor.force-enabled" = true;
+        # "dom.webgpu.enabled" = true;
+        # "layers.gpu-process.enabled" = true;
+        # "layers.mlgpu.enabled" = true;
+        # "layers.acceleration.force-enabled" = true;
+        # "layers.offmainthreadcomposition.enabled" = true;
+        # "media.gpu-process-decoder" = true;
+        # "media.ffmpeg.vaapi.enabled" = true;
+        # "media.rrd-ffmpeg.enabled" = true;
+        # "media.av1.enabled" = true;
+        # "gfx.x11-egl.force-enabled" = true;
+        # "widget.dmabuf.force-enabled" = true;
+        # "media.hardware-video-decoding.force-enabled" = true;
+        # "webgl.disabled" = false;
+        # "cfg.pipewireSupport" = true;
+        # "dom.media.webcodecs.h265.enabled" = true;
+        # "media.hls.enabled" = true;
+        # "media.hevc.enabled" = true;
+        # disable some privacy
         "privacy.resistFingerprinting" = false;
-        "cfg.pipewireSupport" = true;
-        "dom.media.webcodecs.h265.enabled" = true;
-        "media.hls.enabled" = true;
-        "media.hevc.enabled" = true;
         # the rest
         "cookiebanners.service.mode.privateBrowsing" = 2; # Block cookie banners in private browsing
         "cookiebanners.service.mode" = 2; # Block cookie banners
@@ -74,12 +72,6 @@
         "services.sync.prefs.sync.privacy.clearOnShutdown_v2.siteSettings" = false;
         "services.sync.prefs.sync.privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false;
         "network.cookie.lifetimePolicy" = 0;
-        # wayland cope
-        "widget.gtk.global-menu.wayland.enabled" = true;
-        "widget.wayland.opaque-region.enabled" = true;
-        "widget.wayland.fractional-scale.enabled" = true;
-        "widget.wayland.vsync.keep-firing-at-idle" = true;
-        "gfx.wayland.hdr" = true;
       };
       ExtensionSettings = {
         # blocks all addons except the ones specified below
