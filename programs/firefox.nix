@@ -108,6 +108,10 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/youtube-recommended-videos/latest.xpi";
           installation_mode = "force_installed";
         };
+        "fox@replace.fx" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/foxreplace/latest.xpi";
+          installation_mode = "force_installed";
+        };
         # "{38dc25f6-5ed7-4279-a1fb-832b5e90a98b}" = {
         #   install_url = "https://addons.mozilla.org/firefox/downloads/latest/tbl2csv/latest.xpi";
         #   installation_mode = "force_installed";
