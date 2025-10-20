@@ -16,6 +16,7 @@
     # runtimes
     nodejs
     pkgs.php83
+    pkgs.python3Full
     # what
     gh
     # hex
@@ -39,6 +40,7 @@
     pkgs.jetbrains.phpstorm
     pkgs.jetbrains.rider
     pkgs.jetbrains.clion
+    pkgs.jetbrains.pycharm-professional
     pkgs.jetbrains-toolbox
     (ungoogled-chromium.override {
       commandLineArgs = [
