@@ -44,8 +44,13 @@
         # disable some privacy
         "privacy.resistFingerprinting" = false;
         # the rest
-        "cookiebanners.service.mode.privateBrowsing" = 2; # Block cookie banners in private browsing
-        "cookiebanners.service.mode" = 2; # Block cookie banners
+
+        ### setting these is fucking broken despite there being no reasonable reason why
+        ## "cookiebanners.service.mode.privateBrowsing" = 2; 
+        ## "cookiebanners.service.mode" = 2;
+        ### this one is especialy broken no matter what value you pick the config explodes
+        ## "network.cookie.lifetimePolicy" = 0;
+
         # nuke annoying shit
         "privacy.donottrackheader.enabled" = true;
         "privacy.fingerprintingProtection" = true;
@@ -71,7 +76,6 @@
         "services.sync.prefs.sync.privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
         "services.sync.prefs.sync.privacy.clearOnShutdown_v2.siteSettings" = false;
         "services.sync.prefs.sync.privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false;
-        "network.cookie.lifetimePolicy" = 0;
       };
       ExtensionSettings = {
         # blocks all addons except the ones specified below
