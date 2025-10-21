@@ -9,5 +9,4 @@
         };
       };
   };
-  hardware.enableAllFirmware = true;
 }

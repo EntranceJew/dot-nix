@@ -51,6 +51,11 @@
     AllowSuspendThenHibernate=no
   '';
 
+  # License Gate
+  nixpkgs.config.allowUnfree = true;
+  # hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
+
   # Enforce Desktop Environment
   environment.variables = {
     KWIN_DRM_PREFER_COLOR_DEPTH = "24";

@@ -1,12 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  services.xserver.videoDrivers = [ "modesetting" "amdgpu" ];
-  nixpkgs.config = {
-    rocmSupport = true;
-    allowUnfree = true;
-  };
-  hardware.amdgpu = {
-    initrd.enable = true;
-  };
+  services.xserver.videoDrivers = [ "modesetting" ];
+  nixpkgs.config.rocmSupport = true;
+  hardware.amdgpu.initrd.enable = true;
 }
