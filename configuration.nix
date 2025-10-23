@@ -89,6 +89,9 @@
   programs.appimage.binfmt = true;
   programs.java.enable = true;
 
+  # swag initialized
+  programs.sway.enable = true; 
+
   # The User
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "ej";

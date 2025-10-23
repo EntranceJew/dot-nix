@@ -12,9 +12,6 @@
     kdotool
     wlrctl
     wmctrl
-    # more bullshit
-    xdg-desktop-portal
-    kdePackages.xdg-desktop-portal-kde
   ];
 
   # maybe fixes some bullshit with color banding?
