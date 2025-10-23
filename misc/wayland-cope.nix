@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.settings.General.DisplayServer = "wayland";
+  services.displayManager.sddm.wayland.enable = false;
+  # services.displayManager.sddm.settings.General.DisplayServer = "wayland";
 
   users.users.ej.packages = with pkgs; [
     # look at all this bullshit just to do what xdotool can do
@@ -67,23 +67,4 @@
   #   enable = true;
   #   defaultWindowManager = "startplasma-wayland";
   # };
-
-  ## what
-  xdg.portal = {
-    enable = true;
-    wlr = {
-      enable = true;
-      # settings = {
-  #       screencast = {
-  #         max_fps = 55;
-  #         chooser_type = "simple";
-  #         chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-  #       };
-  #     };
-    };
-    config = {
-      wlroots.default = ["wlr"]; # "gtk"
-  #     common.default = ["gtk"];
-    };
-  };
 }
