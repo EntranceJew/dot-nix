@@ -1,7 +1,10 @@
-{ config, pkgs, lib, ... }:
-
 {
-  services.xserver.videoDrivers = [ "nvidia" ];
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  services.xserver.videoDrivers = ["nvidia"];
   # boot = {
   #   # nvidia-uvm is required for CUDA applications
   #   kernelModules = [ "nvidia-uvm" ];
@@ -23,15 +26,15 @@
     };
   };
   # boot = {
-    # kernelParams = [
-      # "nvidia_modeset.hdmi_deepcolor=0"
-      # "module_blacklist=i915"
-      # "nvidia-drm.fbdev=1"
-      # "nvidia-drm.modeset=1"
-      # "nvidia.NVreg_UsePageAttributeTable=1" # why this isn't default is beyond me.
-      # "nvidia_modeset.disable_vrr_memclk_switch=1" # stop really high memclk when vrr is in use.
-    # ];
-    # kernelModules = ["nvidia-drm" "nvidia-uvm"];
+  # kernelParams = [
+  # "nvidia_modeset.hdmi_deepcolor=0"
+  # "module_blacklist=i915"
+  # "nvidia-drm.fbdev=1"
+  # "nvidia-drm.modeset=1"
+  # "nvidia.NVreg_UsePageAttributeTable=1" # why this isn't default is beyond me.
+  # "nvidia_modeset.disable_vrr_memclk_switch=1" # stop really high memclk when vrr is in use.
+  # ];
+  # kernelModules = ["nvidia-drm" "nvidia-uvm"];
   # };
   # services.xserver.videoDrivers = [ "nvidia" ];
   # hardware.nvidia.open = true;  # see the note above
@@ -39,12 +42,12 @@
   #   pkgs.nvidia-vaapi-driver
   #   pkgs.libva-utils
   # ];
-  
+
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
     GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    KWIN_DRM_ALLOW_NVIDIA_COLORSPACE="1";
+    KWIN_DRM_ALLOW_NVIDIA_COLORSPACE = "1";
     # KWIN_DRM_ALLOW_INTEL_COLORSPACE="1";
     # KWIN_DRM_DEVICES="/dev/dri/by-path/pci-0000:01:00.0-card";
     # KWIN_DRM_DISABLE_TRIPLE_BUFFERING="1";

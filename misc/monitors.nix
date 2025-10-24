@@ -1,11 +1,15 @@
-{ config, pkgs, ... }:
-
+{
+  config,
+  pkgs,
+  ...
+}:
+# What the FUCK is any of this shit. I refuse to believe this is needed for ANYTHING
 {
   hardware.display = {
     edid = {
       enable = true;
       linuxhw = {
-        DELL_U2722D_2021 = [ "U2722D" "2021" "0A141DE5419E" ];
+        DELL_U2722D_2021 = ["U2722D" "2021" "0A141DE5419E"];
       };
     };
 

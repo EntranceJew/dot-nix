@@ -1,14 +1,10 @@
-{ config, pkgs, ... }:
-
 {
-  home.sessionVariables = {
-      # video?
-      MOZ_DISABLE_RDD_SANDBOX = "1";
-  };
-
+  config,
+  pkgs,
+  ...
+}: {
   programs.librewolf = {
     enable = true;
-    package = pkgs.librewolf;
     nativeMessagingHosts = [
       pkgs.keepassxc
     ];
@@ -43,10 +39,16 @@
         # "media.hevc.enabled" = true;
         # disable some privacy
         "privacy.resistFingerprinting" = false;
+
+        "browser.startup.homepage" = "https://zombo.com";
+
+        # # UNCOMMENT THIS TO STOP CLICKING CAPTCHAS AND BE ALLOWED TO SEARCH ON LOWES DOT COM
+        # "general.useragent.override" = "Mozilla/5.0 (X11; Linux x86_64; rv:143.0) Gecko/20100101 Firefox/143.0";
+
         # the rest
 
         ### setting these is fucking broken despite there being no reasonable reason why
-        ## "cookiebanners.service.mode.privateBrowsing" = 2; 
+        ## "cookiebanners.service.mode.privateBrowsing" = 2;
         ## "cookiebanners.service.mode" = 2;
         ### this one is especialy broken no matter what value you pick the config explodes
         ## "network.cookie.lifetimePolicy" = 0;

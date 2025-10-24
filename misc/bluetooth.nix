@@ -1,12 +1,11 @@
-{config,pkgs,lib, ...}:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   hardware.bluetooth = {
     enable = true;
-    settings = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-        };
-      };
+    settings.General.enable = "Source,Sink,Media,Socket";
   };
 }

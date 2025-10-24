@@ -1,42 +1,34 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   imports =
-    [ 
-      # inputs.nixos-hardware.nixosModules.common-gpu-nvidia
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./home.nix
+    [
+      inputs.nixos-hardware.nixosModules.common-gpu-amd
+      inputs.nixos-hardware.nixosModules.common-cpu-intel # ew
+
+      inputs.stylix.nixosModules.stylix
+      (import ./stylix.nix false)
 
       ./gfx/shared.nix
       ./gfx/amd.nix
-      
-      ./misc/monitors.nix
-      ./misc/3dconnexion.nix
-      ./misc/scanner.nix
-      ./misc/bluetooth.nix
-      ./misc/audio.nix
-      ./misc/flipper.nix
-      ./misc/games.nix
-      ./misc/keyboard.nix
-      ./misc/locale.nix
-      ./misc/network.nix
-      ./misc/printing.nix
-      ./misc/storage.nix
-      ./misc/tablet.nix
-      ./misc/wayland-cope.nix
 
-      ./bundles/dev.nix
-      ./bundles/media.nix
+      # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+    ]
+    ++ (lib.nixFilesIn ./programs) ++ (lib.nixFilesIn ./misc);
 
-      ./programs/git.nix
-      ./programs/mullvad.nix
-      ./programs/obs.nix
-    ];
+  users.users.ej = {
+    isNormalUser = true;
+    description = "ej";
+    extraGroups = ["networkmanager" "wheel" "adbusers" "audio" "video" "libvirtd" "kvm" "lxd" "sway" "docker" "podman" "input" "uinput" "scanner" "lp" "plugdev"];
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -51,26 +43,7 @@
     AllowSuspendThenHibernate=no
   '';
 
-  # License Gate
-  nixpkgs.config.allowUnfree = true;
-  # hardware.enableAllFirmware = true;
   hardware.enableRedistributableFirmware = true;
-
-  # Enforce Desktop Environment
-  environment.variables = {
-    KWIN_DRM_PREFER_COLOR_DEPTH = "24";
-  };
-  services.xserver.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm.enable = false;
-  services.displayManager.defaultSession = "plasma";
-
-  # Updates
-  system.autoUpgrade = {
-    enable = true;
-    allowReboot = false;
-    channel = "https://channels.nixos.org/nixos-25.05";
-  };
 
   # Prevent Infinite Garbage
   nix.gc = {
@@ -84,55 +57,18 @@
   };
   nix.settings.auto-optimise-store = true;
 
-  # why are these here? idk.
-  programs.appimage.enable = true;
-  programs.appimage.binfmt = true;
+  # Neither of these are needed _for_ anything, because that's not how Nix works.
+  # You have them because you must want them for something
   programs.java.enable = true;
-
-  # swag initialized
-  programs.sway.enable = true; 
-
-  # The User
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "ej";
-  users.users.ej = {
-    isNormalUser = true;
-    description = "ej";
-    extraGroups = [ "networkmanager" "wheel" ];
+  programs.appimage = {
+    # Allow running appimages with `appimage-run`
+    enable = true;
+    # Allow running appimages by just executing the file
+    binfmt = true;
   };
 
-  users.users.ej.packages = with pkgs; [
-    tigervnc
-
-    # auth
-    keepassxc
-
-    # comms
-    discord
-
-    # general
-    kdePackages.kate
-    kdePackages.spectacle
-    obsidian
-    libreoffice
-
-    # phone shit
-    scrcpy
-    gnirehtet
-
-    # experiment
-    (callPackage ./packages/plasma-applet-resources-monitor.nix {})
-  ];
-
-  # fonts.packages = with pkgs; [
-    # noto-fonts
-    # noto-fonts-cjk-sans
-    # noto-fonts-emoji
-    # liberation_ttf
-    # mplus-outline-fonts.githubRelease
-    # dina-font
-    # proggyfonts
-  # ];
+  # swag initialized
+  programs.sway.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
