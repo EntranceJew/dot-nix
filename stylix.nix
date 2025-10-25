@@ -9,6 +9,8 @@ home: {
       enable = true;
       autoEnable = true;
 
+
+      overlays.enable = false;
       polarity = "dark";
 
       image = ./wallpaper.jpg;

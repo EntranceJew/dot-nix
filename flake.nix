@@ -65,7 +65,10 @@
       };
 
       nixosConfigurations.COIN = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs lib;};
+        specialArgs = {
+          inherit inputs lib;
+          # pkgs = pkgsFor "x86_64-linux";
+        };
         modules = [
           nixpkgs.nixosModules.readOnlyPkgs
           {nixpkgs.pkgs = pkgsFor "x86_64-linux";}

@@ -56,6 +56,7 @@
     dates = ["weekly"];
   };
   nix.settings.auto-optimise-store = true;
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Neither of these are needed _for_ anything, because that's not how Nix works.
   # You have them because you must want them for something

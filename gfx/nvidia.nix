@@ -10,11 +10,6 @@
   #   kernelModules = [ "nvidia-uvm" ];
   #   blacklistedKernelModules = [ "nouveau" ];
   # };
-  nixpkgs.config = {
-    cudaSupport = true;
-    allowUnfree = true;
-    # nvidia.acceptLicense = true;
-  };
   hardware.nvidia = {
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.production.overrideAttrs {
