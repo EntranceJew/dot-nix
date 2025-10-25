@@ -5,7 +5,6 @@
   cmake,
   kdePackages,
 }:
-
 stdenv.mkDerivation rec {
   pname = "plasma-applet-resources-monitor";
   version = "3.1.1";
@@ -35,6 +34,6 @@ stdenv.mkDerivation rec {
     '';
     license = lib.licenses.gpl3;
     homepage = "https://github.com/orblazer/plasma-applet-resources-monitor/";
-    maintainers = with lib.maintainers; [ johnylpm ];
+    maintainers = with lib.maintainers; [johnylpm];
   };
 }

@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-  environment.systemPackages = with pkgs; [
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [
     # media
     x265
     ffmpeg-full
@@ -10,7 +12,6 @@
     tenacity
     yt-dlp
     kdePackages.kdenlive
-    (mpv.override { scripts = [mpvScripts.mpris];})
 
     # music
     vcv-rack
@@ -23,4 +24,14 @@
     # note: need this for stage lights
     #qlcplus
   ];
+
+  programs.mpv = {
+    config = {
+      profile = "gpu-hq";
+      ytdl-format = "bestvideo+bestaudio";
+    };
+    scripts = with pkgs.mpvScripts; [
+      mpris
+    ];
+  };
 }

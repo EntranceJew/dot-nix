@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-  environment.systemPackages = with pkgs; [
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [
     # files
     opentabletdriver
     inkscape

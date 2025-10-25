@@ -1,1 +1,4 @@
 **/secrets/*
+/nixfiles
+/.deploy-gc
+result*

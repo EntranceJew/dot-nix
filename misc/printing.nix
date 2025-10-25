@@ -1,10 +1,18 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   services.avahi = {
     enable = true;
     nssmdns4 = true;
-    openFirewall = true;
+
+    # left this commented out cos i dont want to poke holes in your system,
+    # but I don't see why this would be off, and think it should be on
+    # publish = {
+    #   enable = true;
+    #   userServices = true;
+    # };
   };
 
   services.printing = {
