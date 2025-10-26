@@ -28,11 +28,29 @@
           res = "2560x1440";
         };
       };
-      /*
-      your config go here
-      */
     };
   };
+
+  programs.satty = {
+    enable = true;
+    settings.general = {
+      fullscreen = true;
+      initial-tool = "crop";
+      early-exit = true;
+      copy-command = "wl-copy";
+      save-after-copy = true;
+      actions-on-enter = ["save-to-clipboard"];
+      actions-on-escape = ["exit"];
+      output-filename = "${config.home.homeDirectory}/Pictures/Screenshots/satty-%F_%T.png";
+    };
+  };
+  home.packages = with pkgs; [
+    wl-clipboard
+    sway-contrib.grimshot
+    grim
+  ];
+
+  wayland.windowManager.sway.config.keybindings."--release Print" = "exec grim - | satty -f -";
 
   services.clipman.enable = true;
 
