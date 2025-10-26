@@ -11,19 +11,19 @@
     config = {
       modifier = "Mod4";
       output = {
-        "FWG43P3" = {
+        "Dell Inc. DELL U2722D FWG43P3" = {
           pos = "2560 0";
           res = "2560x1440";
         };
-        "8VL24P3" = {
+        "Dell Inc. DELL U2722D 8VL24P3" = {
           pos = "2560 1440";
           res = "2560x1440";
         };
-        "714J7P3" = {
+        "Dell Inc. DELL U2722D 714J7P3" = {
           pos = "0 0";
           res = "2560x1440";
         };
-        "CGF55P3" = {
+        "Dell Inc. DELL U2722D CGF55P3" = {
           pos = "0 1440";
           res = "2560x1440";
         };
@@ -33,6 +33,8 @@
       */
     };
   };
+
+  services.clipman.enable = true;
 
   xdg = {
     enable = true;
