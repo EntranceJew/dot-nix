@@ -4,8 +4,5 @@
   lib,
   ...
 }: {
-  hardware.bluetooth = {
-    enable = true;
-    settings.General.enable = "Source,Sink,Media,Socket";
-  };
+  hardware.bluetooth.settings.General.enable = "Source,Sink,Media,Socket";
 }

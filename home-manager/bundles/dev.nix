@@ -16,7 +16,7 @@
     # runtimes
     nodejs # cringe
     pkgs.php83
-    pkgs.python3Full
+    pkgs.python315
     # what
     gh
     # hex
@@ -24,8 +24,8 @@
     imhex
     # gamedev
     godotPackages_4_3.godot-mono
-    godotPackages_4_3.export-templates-mono-bin
-    godotPackages_4_3.export-templates-bin
+    # godotPackages_4_3.export-templates-mono-bin
+    # godotPackages_4_3.export-templates-bin
     godotPackages_4_3.export-template-mono
     godotPackages_4_3.export-template
     # highlighters
