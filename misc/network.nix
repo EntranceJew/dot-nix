@@ -11,5 +11,6 @@
   services = {
     # just makes dns like a lot better lol
     resolved.enable = true;
+    openssh.enable = true;
   };
 }

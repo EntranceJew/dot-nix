@@ -75,6 +75,7 @@
         ];
       };
 
+      home-manager.backupFileExtension = "ej.backup"; # this builds without error but does not do anything either
       homeManagerConfigurations.COIN.ej = home-manager.lib.homeManagerConfiguration rec {
         pkgs = pkgsFor "x86_64-linux";
         extraSpecialArgs = {
@@ -93,6 +94,7 @@
         autoRollback = false;
         profiles = {
           system = {
+            interactiveSudo = true; # broke ass nae nae flake can't deploy good
             user = "root";
             path =
               (pkgsFor "x86_64-linux").deploy-rs.lib.activate.nixos
