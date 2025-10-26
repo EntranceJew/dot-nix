@@ -44,7 +44,6 @@
         allowUnfree = true;
         pulseaudio = true;
         rocmSupport = true;
-        cudaSupport = true;
       };
       overlays = builtins.attrValues self.overlays;
     };
