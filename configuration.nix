@@ -43,6 +43,8 @@
     AllowSuspendThenHibernate=no
   '';
 
+  security.sudo.wheelNeedsPassword = false;
+
   hardware.enableRedistributableFirmware = true;
 
   # Prevent Infinite Garbage
