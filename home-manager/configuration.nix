@@ -9,6 +9,10 @@
     [
       inputs.stylix.homeModules.stylix
       (import ../stylix.nix true)
+
+      # ./wm/sway.nix
+      ./wm/plasma6.nix
+
     ]
     ++ (lib.nixFilesIn ./programs) ++ (lib.nixFilesIn ./misc) ++ (lib.nixFilesIn ./bundles);
 

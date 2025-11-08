@@ -14,6 +14,8 @@
     };
   };
 
+  programs.sway.enable = true;
+
   # Having a login screen is nice
   services.greetd = {
     enable = true;

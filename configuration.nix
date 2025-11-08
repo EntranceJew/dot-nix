@@ -19,6 +19,9 @@
       ./gfx/shared.nix
       ./gfx/amd.nix
 
+      # ./wm/sway.nix
+      ./wm/plasma6.nix
+
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ]
@@ -69,9 +72,6 @@
     # Allow running appimages by just executing the file
     binfmt = true;
   };
-
-  # swag initialized
-  programs.sway.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
