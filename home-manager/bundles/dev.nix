@@ -4,6 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
+    # fonts
     fira-code
     fira-code-symbols
 
@@ -23,6 +24,7 @@
     helix
     imhex
     # gamedev
+    love
     godotPackages_4_3.godot-mono
     # godotPackages_4_3.export-templates-mono-bin
     # godotPackages_4_3.export-templates-bin
@@ -66,8 +68,15 @@
           # samual.hackmud-color
           esbenp.prettier-vscode
           usernamehw.errorlens
+          sumneko.lua
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "local-lua-debugger-vscode";
+            publisher = "tomblind";
+            version = "0.3.3";
+            sha256 = "sha256-7uZHbhOa/GT9F7+xikaxuQXIGzre1q1uWTWaTJhi2UA=";
+          }
           {
             name = "markwhen";
             publisher = "Markwhen";
