@@ -13,27 +13,26 @@
       };
     };
 
-    # I don't know where "DP-1" is
     # outputs = {
-    #   "DP-2" = {
+    #   "Dell Inc. DELL U2722D FWG43P3" = {
+    #     pos = "2560 0";
+    #     mode = "2560x1440-24@60eD";
     #     edid = "DELL_U2722D_2021.bin";
-    #     # mode = "2560x1440-24@60eD";
-    #     mode = "1920x1080-24@60e";
     #   };
-    #   "DP-3" = {
+    #   "Dell Inc. DELL U2722D 8VL24P3" = {
+    #     pos = "2560 1440";
+    #     mode = "2560x1440-24@60eD";
     #     edid = "DELL_U2722D_2021.bin";
-    #     # mode = "2560x1440-24@60eD";
-    #     mode = "1920x1080-24@60e";
     #   };
-    #   "DP-4" = {
+    #   "Dell Inc. DELL U2722D 714J7P3" = {
+    #     pos = "0 0";
+    #     mode = "2560x1440-24@60eD";
     #     edid = "DELL_U2722D_2021.bin";
-    #     # mode = "2560x1440-24@60eD";
-    #     mode = "1920x1080-24@60e";
     #   };
-    #   "DP-5" = {
+    #   "Dell Inc. DELL U2722D CGF55P3" = {
+    #     pos = "0 1440";
+    #     mode = "2560x1440-24@60eD";
     #     edid = "DELL_U2722D_2021.bin";
-    #     # mode = "2560x1440-24@60eD";
-    #     mode = "1920x1080-24@60e";
     #   };
     # };
   };
