@@ -22,7 +22,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ]
-    ++ (lib.nixFilesIn ./programs) ++ (lib.nixFilesIn ./misc);
+    ++ (lib.nixFilesIn ./misc);
 
   users.users.ej = {
     isNormalUser = true;
