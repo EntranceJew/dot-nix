@@ -17,7 +17,7 @@
       (import ./stylix.nix false)
 
       ./gfx/shared.nix
-      ./gfx/amd.nix
+      # ./gfx/amd.nix
 
       # ./wm/sway.nix
       ./wm/plasma6.nix
@@ -26,6 +26,8 @@
       ./hardware-configuration.nix
     ]
     ++ (lib.nixFilesIn ./misc);
+
+  disabledModules = [ "hardware/facter/system.nix" ];
 
   users.users.ej = {
     isNormalUser = true;
