@@ -12,10 +12,10 @@
     portal = {
       enable = true;
       xdgOpenUsePortal = true;
-      extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
+      extraPortals = [pkgs.kdePackages.xdg-desktop-portal-kde];
       config = {
-        common.default = ["gtk"];
-        wlroots.default = ["gtk" "wlr"];
+        kde.default = [ "kde" "gtk" "gnome" ];
+        kde."org.freedesktop.portal.FileChooser" = [ "kde" ];
       };
     };
   };
